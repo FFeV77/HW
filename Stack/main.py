@@ -1,33 +1,15 @@
 pairs = ['()', '{}', '[]']
 
 
-class Stack(list):
-
-    def isEmpty(self):
-        return False if super().__len__() > 0 else True
-
-    def push(self, item):
-        super().append(item)
-
-    def pop(self):
-        return super().pop()
-
-    def peek(self):
-        return super().__getitem__(-1)
-
-    def size(self):
-        return super().__len__()
-
-
 class Stack2():
 
-    def __init__(self, stack: str):
+    def __init__(self, stack:str=''):
         self.stack = list(stack)
 
     def isEmpty(self):
         return False if len(self.stack) > 0 else True
 
-    def push(self, item: str):
+    def push(self, item:str):
         self.stack += item
 
     def pop(self):
@@ -40,10 +22,10 @@ class Stack2():
         return len(self.stack)
 
 
-def is_balanced(some_stack: Stack2):
+def is_balanced(some_stack:Stack2):
     if not some_stack.isEmpty() and not some_stack.size() % 2:
-        right_stack = Stack2('')
-        while some_stack.size() > 1: 
+        right_stack = Stack2()
+        while some_stack.size() > 1:
             last_item = some_stack.pop()
             next_item = some_stack.peek()
             is_closed = (next_item + last_item) in pairs
@@ -84,4 +66,6 @@ def test():
     print('Все тесты прошли успешно!')
 
 
-test()
+if __name__ == '__main__':
+
+    test()
