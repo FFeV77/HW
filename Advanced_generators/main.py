@@ -8,8 +8,7 @@ nested_list = [
 def flat_generator(nested_list):
     for items in nested_list:
         if isinstance(items, list):
-            for item in flat_generator(items):
-                yield item
+            yield from flat_generator(items)
         else:
             yield items
 
